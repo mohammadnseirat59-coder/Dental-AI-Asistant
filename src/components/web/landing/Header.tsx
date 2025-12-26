@@ -47,9 +47,9 @@ const Header = () => {
             alt="Logo Image"
             height={32}
             width={32}
-            className="w-11"
+            className="w-12 md:w-11 "
           />
-          <span className="text-lg font-[400] text-transparent bg-gradient-to-r from-primary to-primary/70 bg-clip-text">
+          <span className="hidden md:inline-block text-lg font-[400] text-transparent bg-gradient-to-r from-primary to-primary/70 bg-clip-text">
             Dental Assistant
           </span>
         </Link>
