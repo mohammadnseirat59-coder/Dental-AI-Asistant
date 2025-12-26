@@ -198,3 +198,75 @@ body {
     cursor: pointer;
   }
 }
+
+/* Floating animation - moves in all directions */
+@keyframes float-around {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(40px, -40px); /* Right and Up */
+  }
+  50% {
+    transform: translate(-40px, -30px); /* Left and Up */
+  }
+  75% {
+    transform: translate(-30px, 40px); /* Left and Down */
+  }
+  100% {
+    transform: translate(0, 0); /* Back to start */
+  }
+}
+
+/* Reverse floating animation */
+@keyframes float-around-reverse {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-50px, 40px); /* Left and Down */
+  }
+  50% {
+    transform: translate(50px, 30px); /* Right and Down */
+  }
+  75% {
+    transform: translate(40px, -50px); /* Right and Up */
+  }
+  100% {
+    transform: translate(0, 0); /* Back to start */
+  }
+}
+
+/* Apply slow motion */
+.animate-float-around {
+  animation: float-around 30s ease-in-out infinite;
+}
+
+.animate-float-around-reverse {
+  animation: float-around-reverse 40s ease-in-out infinite;
+}
+
+/* @keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -20px) scale(1.05) rotate(90deg);
+  }
+  50% {
+    transform: translate(-15px, 15px) scale(0.95) rotate(180deg);
+  }
+  75% {
+    transform: translate(25px, 10px) scale(1.02) rotate(270deg);
+  }
+}
+
+.animate-blob {
+  animation: blob 30s ease-in-out infinite;
+}
+
+.animate-blob-delay {
+  animation: blob 35s ease-in-out infinite;
+  animation-delay: 2s;
+} */

@@ -1,22 +1,8 @@
-import { Loader, LucideIcon } from "lucide-react";
-
 import { Button } from "../ui/button";
+import { IActionButtonProps } from "@/types";
+import { Loader } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
-
-interface IActionButtonProps {
-  Icon?: LucideIcon;
-  label?: string;
-  onClick?: () => void;
-  btnClassName?: string;
-  varieant?: "default" | "outline" | "ghost" | "link" | "destructive";
-  labelClassName?: string;
-  iconClassName?: string;
-  btnType?: "button" | "submit" | "reset";
-  disabled?: boolean;
-  loading?: boolean;
-  showLaodingText?: boolean;
-}
 
 const ActionButton = ({
   Icon,
@@ -30,9 +16,11 @@ const ActionButton = ({
   disabled = false,
   loading = false,
   showLaodingText = false,
+  size = "default",
 }: IActionButtonProps) => {
   return (
     <Button
+      size={size}
       type={btnType}
       variant={varieant}
       className={`${cn(btnClassName)} ${
