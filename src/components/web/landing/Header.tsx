@@ -10,30 +10,37 @@ import { section_LInks } from "@/constant";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
-
-  //! useEffect to handle Active Link on Scroll:
+  //! useEffect for active link and scroll:
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-40% 0px -50% 0px",
+    const handleScroll = () => {
+      // If scrolled to very top, clear active link
+      if (window.scrollY < 100) {
+        setActiveLink(null);
+        return;
       }
-    );
 
-    section_LInks.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) observer.observe(element);
-    });
+      // Find which section is currently in view
+      section_LInks.forEach((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          //* Check if section is in the middle of viewport
+          if (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          ) {
+            setActiveLink(section.id);
+          }
+        }
+      });
+    };
 
-    //! Cleanup function
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-primary/50 bg-gradient-to-r from-background/80 to-primary/10

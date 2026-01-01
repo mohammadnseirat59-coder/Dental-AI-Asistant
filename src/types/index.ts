@@ -19,3 +19,11 @@ export interface IActionButtonProps {
   showLaodingText?: boolean;
   size?: "sm" | "lg" | "icon" | "icon-sm" | "icon-lg" | "default";
 }
+
+//! types for Card Content:
+export interface ICardContentProps {
+  icon: string;
+  title: string;
+  description: string;
+  badgeText: { firstBadge: string; secondBadge: string };
+}

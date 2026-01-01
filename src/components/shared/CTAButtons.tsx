@@ -1,3 +1,5 @@
+"use client";
+
 import ActionButton from "./ActionButton";
 import { IActionButtonProps } from "@/types";
 import { LucideIcon } from "lucide-react";
@@ -16,6 +18,7 @@ const CallToActionButtons = ({
   callClassName,
   callSize,
   varieant = "default",
+  iconClassName,
 }: ICallToActionButtonsProps) => {
   return (
     <SignUpButton>
@@ -25,6 +28,7 @@ const CallToActionButtons = ({
         btnClassName={callClassName}
         size={callSize}
         varieant={varieant}
+        iconClassName={iconClassName}
       />
     </SignUpButton>
   );

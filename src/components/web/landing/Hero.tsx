@@ -1,3 +1,5 @@
+"use client";
+
 import { CalendarIcon, Mic2Icon } from "lucide-react";
 
 import BadgeComponent from "../BadgeComponent";
@@ -26,7 +28,10 @@ const Hero = () => {
             <div className="space-y-10">
               <div className="space-y-6">
                 {/* Badge */}
-                <BadgeComponent badgeText=" AI-Powered Dental Assistant" />
+                <BadgeComponent
+                  containerClassName="md:mx-0"
+                  badgeText=" AI-Powered Dental Assistant"
+                />
                 {/* Main Heading */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight">
                   <span className="capitalize bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
@@ -62,7 +67,7 @@ const Hero = () => {
                   callToActionICon={CalendarIcon}
                   callSize="lg"
                   varieant="outline"
-                  callClassName="ring-2 ring-primary/70 w-full md:w-auto"
+                  callClassName="ring-1 ring-primary/20 w-full md:w-auto"
                 />
               </div>
             </div>
